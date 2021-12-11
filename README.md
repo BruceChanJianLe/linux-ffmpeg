@@ -13,7 +13,7 @@ ffmpeg -y -i input_file.mp4 -c:v libx264 -c:a aac -strict experimental -tune fas
 ## Cropping
 
 ```sh
-	ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4
+ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4
 ```
   Where:
 	“in.mp4” refers to the input file to be converted
