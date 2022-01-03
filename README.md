@@ -49,3 +49,5 @@ ffmpeg -i input.png -vf scale="iw/1:ih/2" output.png
 	-i: This specifies the input file. In that case, it is (input.mp4).
 	-vf: is filter_graph which set video filters, here we use scale as the filter.
 	scale: This is the scale you want for the image (width:height).
+	iw: input width
+	ih: input height
