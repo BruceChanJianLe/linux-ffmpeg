@@ -42,6 +42,8 @@ ffmpeg -ss 00:01:00 -i input.mp4 -to 00:02:00 -c copy output.mp4
 
 ```sh
 ffmpeg -i input.png -vf scale=17:17 output.png
+ffmpeg -i input.png -vf scale="iw/1:ih/2" output.png
+
 ```
   Where:
 	-i: This specifies the input file. In that case, it is (input.mp4).
