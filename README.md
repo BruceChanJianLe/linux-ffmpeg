@@ -37,3 +37,13 @@ ffmpeg -ss 00:01:00 -i input.mp4 -to 00:02:00 -c copy output.mp4
 	00:02:00: This is the time your trimmed video will end with.
 	-c copy: This is an option to trim via stream copy. (NB: Very fast)
 	The timing format is: hh:mm:ss
+
+## Resizing Images
+
+```sh
+ffmpeg -i input.png -vf scale=17:17 output.png
+```
+  Where:
+	-i: This specifies the input file. In that case, it is (input.mp4).
+	-vf: is filter_graph which set video filters, here we use scale as the filter.
+	scale: This is the scale you want for the image (width:height).
