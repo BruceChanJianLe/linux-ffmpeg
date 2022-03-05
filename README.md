@@ -8,7 +8,10 @@ To windows format,
 ```sh
 ffmpeg -i in.mp4 -pix_fmt yuv420p -c:a copy -movflags +faststart out.mp4
 ffmpeg -y -i input_file.mp4 -c:v libx264 -c:a aac -strict experimental -tune fastdecode -pix_fmt yuv420p -b:a 192k -ar 48000 output_file.mp4
+ffmpeg -i input.mp4 -c:v libx265 -crf 26 -preset fast -c:a aac -b:a 128k output.mp4
 ```
+
+Reference(https://trac.ffmpeg.org/wiki/Encode/H.265)
 
 ## Cropping
 
