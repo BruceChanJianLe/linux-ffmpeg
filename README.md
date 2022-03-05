@@ -9,9 +9,15 @@ To windows format,
 ffmpeg -i in.mp4 -pix_fmt yuv420p -c:a copy -movflags +faststart out.mp4
 ffmpeg -y -i input_file.mp4 -c:v libx264 -c:a aac -strict experimental -tune fastdecode -pix_fmt yuv420p -b:a 192k -ar 48000 output_file.mp4
 ffmpeg -i input.mp4 -c:v libx265 -crf 26 -preset fast -c:a aac -b:a 128k output.mp4
+# When error occurs, use the command below
+# [libx264 @ 0x55add09ab9e0] height not divisible by 2 (2112x1207)
+# Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height
+ffmpeg -y -i input.mp4 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:v libx264 -c:a aac -strict experimental -tune fastdecode -pix_fmt yuv420p -c:a 192k -ar 48000 out.mp4
 ```
 
-Reference(https://trac.ffmpeg.org/wiki/Encode/H.265)
+Reference
+- (https://trac.ffmpeg.org/wiki/Encode/H.265)
+- (https://stackoverflow.com/questions/20847674/ffmpeg-libx264-height-not-divisible-by-2)
 
 ## Cropping
 
