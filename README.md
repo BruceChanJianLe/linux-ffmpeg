@@ -60,3 +60,13 @@ ffmpeg -i input.png -vf scale="iw/1:ih/2" output.png
 	scale: This is the scale you want for the image (width:height).
 	iw: input width
 	ih: input height
+	
+## Reducing mp4 File Size
+
+```sh
+ffmpeg -i input.mp4 -vcodec libx265 -crf 40 output.mp4
+```
+
+The lower the crf number the higher the resolution.
+
+[reference](https://unix.stackexchange.com/questions/28803/how-can-i-reduce-a-videos-size-with-ffmpeg)
