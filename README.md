@@ -70,3 +70,18 @@ ffmpeg -i input.mp4 -vcodec libx265 -crf 40 output.mp4
 The lower the crf number the higher the resolution.
 
 [reference](https://unix.stackexchange.com/questions/28803/how-can-i-reduce-a-videos-size-with-ffmpeg)
+
+## Speed up Video
+
+```sh
+# To double the speed of the video with the setpts filter, you can use the below command, but note that it will drop frames
+ffmpeg -i input.mkv -filter:v "setpts=0.5*PTS" output.mkv
+
+# You can avoid dropped frames by specifying a higher output frame rate than the input. For example, to go from an input of 4 FPS to one that is sped up to 4x that (16 FPS):
+ffmpeg -i input.mkv -r 16 -filter:v "setpts=0.25*PTS" output.mkv
+
+# To slow down your video, you have to use a multiplier greater than 1:
+ffmpeg -i input.mkv -filter:v "setpts=2.0*PTS" output.mkv
+```
+
+[reference](https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video)
