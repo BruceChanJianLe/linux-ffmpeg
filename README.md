@@ -13,6 +13,8 @@ ffmpeg -i input.mp4 -c:v libx265 -crf 26 -preset fast -c:a aac -b:a 128k output.
 # [libx264 @ 0x55add09ab9e0] height not divisible by 2 (2112x1207)
 # Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height
 ffmpeg -y -i input.mp4 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:v libx264 -c:a aac -strict experimental -tune fastdecode -pix_fmt yuv420p -c:a 192k -ar 48000 out.mp4
+# From Kazam
+ffmpeg -i input_filename.mp4 -pix_fmt yuv420p -c:v libx264 -preset slow -b:v 3500k -c:a aac -b:a 128k output_filename.mp4
 ```
 
 Reference
@@ -65,6 +67,8 @@ ffmpeg -i input.png -vf scale="iw/1:ih/2" output.png
 
 ```sh
 ffmpeg -i input.mp4 -vcodec libx265 -crf 40 output.mp4
+# Keng Peng Method
+ffmpeg -i input.mp4 -c:v libx264 -preset medium -b:v 750k -c:a aac -b:a 128k -strict -2 output.mp4
 ```
 
 The lower the crf number the higher the resolution.
