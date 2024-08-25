@@ -120,3 +120,11 @@ ffmpeg -ss 0 -t 5 -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][
 - Control looping with -loop output option but the values are confusing. A value of 0 is infinite looping, -1 is no looping, and 1 will loop once meaning it will play twice. So a value of 10 will cause the GIF to play 11 times.
 
 [reference](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
+
+## M4A to MP3
+
+```bash
+ffmpeg -i filenameee.m4a -acodec libmp3lame -ab 256k output.mp3
+```
+
+[reference](https://superuser.com/questions/704493/ffmpeg-convert-m4a-to-mp3-without-significant-loss)
