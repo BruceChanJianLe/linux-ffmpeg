@@ -128,3 +128,11 @@ ffmpeg -i filenameee.m4a -acodec libmp3lame -ab 256k output.mp3
 ```
 
 [reference](https://superuser.com/questions/704493/ffmpeg-convert-m4a-to-mp3-without-significant-loss)
+
+## WEBM to MP4
+
+```bash
+ffmpeg -fflags +genpts -i input.webm -r 24 output.mp4
+```
+
+[reference](https://stackoverflow.com/questions/18123376/webm-to-mp4-conversion-using-ffmpeg)
